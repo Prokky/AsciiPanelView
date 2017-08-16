@@ -1,8 +1,31 @@
 apply plugin: 'com.android.library'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'asciipanelview'
+
+    publishedGroupId = 'com.prokkypew'
+    libraryName = 'AsciiPanelView'
+    artifact = 'asciipanelview'
+
+    libraryDescription = 'Port of AsciiPanel to Android'
+
+    siteUrl = 'https://github.com/Prokky/AsciiPanelView'
+    gitUrl = 'https://github.com/Prokky/AsciiPanelView.git'
+
+    libraryVersion = '0.9'
+
+    developerId = 'prokky'
+    developerName = 'Alexander Roman'
+    developerEmail = 'prokky8@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 26

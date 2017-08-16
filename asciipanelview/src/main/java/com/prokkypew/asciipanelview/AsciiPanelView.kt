@@ -8,7 +8,7 @@ import android.view.View
 
 /**
  * An implementation of terminal view for oldschool games
- * @author Alexander Roman
+ * by Alexander Roman
  */
 
 class AsciiPanelView : View {
