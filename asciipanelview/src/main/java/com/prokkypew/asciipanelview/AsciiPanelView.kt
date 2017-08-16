@@ -3,6 +3,7 @@ package com.prokkypew.asciipanelview
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 
 
@@ -20,11 +21,13 @@ class AsciiPanelView : View {
         const val DEFAULT_FONT: String = "font.ttf"
     }
 
+    lateinit var chars: Array<Array<ColoredChar>>
+    var onCharClickedListener: OnCharClickedListener? = null
+
     var panelWidth: Int = DEFAULT_PANEL_WIDTH
     var panelHeight: Int = DEFAULT_PANEL_HEIGHT
     var basicGlyphColor: Int = DEFAULT_GLYPH_COLOR
     var basicBgColor: Int = DEFAULT_bgColor_COLOR
-    lateinit var chars: Array<Array<ColoredChar>>
     var tileWidth: Float = 0f
     var tileHeight: Float = 0f
     var textPaint: Paint = Paint()
@@ -67,6 +70,13 @@ class AsciiPanelView : View {
 
         val font = Typeface.create(Typeface.createFromAsset(context.assets, fontFamily), Typeface.BOLD)
         textPaint.typeface = font
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val x = event.x.div(tileWidth).toInt()
+        val y = event.y.div(tileHeight).toInt()
+        onCharClickedListener?.onCharClicked(x, y, chars[x][y])
+        return super.onTouchEvent(event)
     }
 
     override fun onSizeChanged(xNew: Int, yNew: Int, xOld: Int, yOld: Int) {
@@ -287,6 +297,10 @@ class AsciiPanelView : View {
             writeChar(string[i], x + i, y, gColor, bColor)
         }
         return this
+    }
+
+    interface OnCharClickedListener {
+        fun onCharClicked(x: Int?, y: Int?, char: ColoredChar)
     }
 
     class ColoredChar(var glyph: Char, var glyphColor: Int, var bgColor: Int)
