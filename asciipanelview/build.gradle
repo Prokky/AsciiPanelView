@@ -16,7 +16,7 @@ ext {
     siteUrl = 'https://github.com/Prokky/AsciiPanelView'
     gitUrl = 'https://github.com/Prokky/AsciiPanelView.git'
 
-    libraryVersion = '0.91'
+    libraryVersion = '0.92'
 
     developerId = 'prokky'
     developerName = 'Alexander Roman'
@@ -34,7 +34,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
-        versionName "0.91"
+        versionName "0.92"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

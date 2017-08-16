@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.prokkypew.asciipanelview.AsciiPanelView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), AsciiPanelView.OnCharClickedListener {
 
@@ -21,5 +22,7 @@ class MainActivity : AppCompatActivity(), AsciiPanelView.OnCharClickedListener {
 
     override fun onCharClicked(x: Int?, y: Int?, char: AsciiPanelView.ColoredChar) {
         Log.d("char", "char clicked:" + x + ":" + y + " = " + char.glyph)
+        panel.clearRect(' ', 0, 1, panel.panelWidth, 1)
+        panel.writeCenter("x:" + x + " y:" + y + " char:" + char.glyph, 1)
     }
 }

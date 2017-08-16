@@ -163,6 +163,9 @@ class AsciiPanelView : View {
         chars[x][y] = ColoredChar(character, gColor, bColor)
         cursorX = x + 1
         cursorY = y
+
+        invalidate()
+
         return this
     }
 
