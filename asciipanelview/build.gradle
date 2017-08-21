@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'org.jetbrains.dokka-android'
 
 ext {
     bintrayRepo = 'maven'
@@ -16,7 +17,7 @@ ext {
     siteUrl = 'https://github.com/Prokky/AsciiPanelView'
     gitUrl = 'https://github.com/Prokky/AsciiPanelView.git'
 
-    libraryVersion = '0.92'
+    libraryVersion = '1.0'
 
     developerId = 'prokky'
     developerName = 'Alexander Roman'
@@ -27,6 +28,11 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -34,7 +40,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
-        versionName "0.92"
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -10,6 +10,6 @@
         android:id="@+id/panel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:defaultGlyphColor="#0000ff"
+        app:defaultCharColor="#0000ff"
         app:defaultBackgroundColor="#000000"/>
 </FrameLayout>

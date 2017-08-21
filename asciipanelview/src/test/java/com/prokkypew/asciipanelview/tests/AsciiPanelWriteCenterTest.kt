@@ -2,18 +2,17 @@ package com.prokkypew.asciipanelview.tests
 
 import android.graphics.Color
 import com.prokkypew.asciipanelview.AsciiPanelView
+import com.prokkypew.asciipanelview.CustomTestRunner
 import com.prokkypew.asciipanelview.checkCorrectString
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(manifest = "asciipanelview/src/main/AndroidManifest.xml",
-        sdk = intArrayOf(26))
+@RunWith(CustomTestRunner::class)
+@Config(sdk = intArrayOf(26))
 class AsciiPanelWriteCenterTest {
     private lateinit var panel: AsciiPanelView
 

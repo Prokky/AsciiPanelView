@@ -1,23 +1,18 @@
 package com.prokkypew.asciipanelview.tests
 
 import android.graphics.Color
-import com.prokkypew.asciipanelview.AsciiPanelView
-import com.prokkypew.asciipanelview.checkCorrectString
-import com.prokkypew.asciipanelview.checkInvalidCharPos
-import com.prokkypew.asciipanelview.checkInvalidCursorPos
+import com.prokkypew.asciipanelview.*
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(manifest = "asciipanelview/src/main/AndroidManifest.xml",
-        sdk = intArrayOf(26))
+@RunWith(CustomTestRunner::class)
+@Config(sdk = intArrayOf(26))
 class AsciiPanelWriteTest {
     private lateinit var panel: AsciiPanelView
 
@@ -47,24 +42,24 @@ class AsciiPanelWriteTest {
     fun checkWriteChar() {
         panel.setCursorPosition(5, 14)
         panel.writeChar('c')
-        assertEquals(panel.chars[5][14].glyph, 'c')
+        assertEquals(panel.chars[5][14].char, 'c')
 
         panel.setCursorPosition(1, 1)
         panel.writeChar('p', Color.RED)
-        assertEquals(panel.chars[1][1].glyph, 'p')
-        assertEquals(panel.chars[1][1].glyphColor, Color.RED)
+        assertEquals(panel.chars[1][1].char, 'p')
+        assertEquals(panel.chars[1][1].charColor, Color.RED)
 
         panel.writeCharWithPos('a', 3, 3)
-        assertEquals(panel.chars[3][3].glyph, 'a')
+        assertEquals(panel.chars[3][3].char, 'a')
 
         panel.writeChar('#', 4, 4, Color.BLUE)
-        assertEquals(panel.chars[4][4].glyph, '#')
-        assertEquals(panel.chars[4][4].glyphColor, Color.BLUE)
+        assertEquals(panel.chars[4][4].char, '#')
+        assertEquals(panel.chars[4][4].charColor, Color.BLUE)
 
         panel.setCursorPosition(15, 15)
         panel.writeCharWithColor('z', Color.RED, Color.BLACK)
-        assertEquals(panel.chars[15][15].glyph, 'z')
-        assertEquals(panel.chars[15][15].glyphColor, Color.RED)
+        assertEquals(panel.chars[15][15].char, 'z')
+        assertEquals(panel.chars[15][15].charColor, Color.RED)
         assertEquals(panel.chars[15][15].bgColor, Color.BLACK)
 
         checkInvalidCharPos(panel, 'c', 5, Integer.MAX_VALUE, null)

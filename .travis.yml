@@ -1,0 +1,22 @@
+language: android
+jdk: oraclejdk8
+sudo: false
+android:
+  components:
+    # Update Android SDK Tools
+    - tools
+    - platform-tools
+
+    - build-tools-26.0.1
+    - android-26
+    # Support library
+    - extra-android-support
+    - extra-android-m2repository
+    - extra-google-m2repository
+
+before_script:
+    - "echo $JAVA_OPTS"
+    - "export JAVA_OPTS=-Xmx512m"
+
+script:
+    - ./gradlew build
