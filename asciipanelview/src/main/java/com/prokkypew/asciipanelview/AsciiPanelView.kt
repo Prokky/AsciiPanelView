@@ -51,7 +51,7 @@ class AsciiPanelView : View {
         init()
     }
 
-    fun readAttributes(attrs: AttributeSet) {
+    private fun readAttributes(attrs: AttributeSet) {
         val ta = context.obtainStyledAttributes(attrs, R.styleable.AsciiPanelView)
         try {
             panelWidth = ta.getInt(R.styleable.AsciiPanelView_panelWidth, DEFAULT_PANEL_WIDTH)

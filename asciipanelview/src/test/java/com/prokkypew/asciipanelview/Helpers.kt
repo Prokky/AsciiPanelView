@@ -1,4 +1,4 @@
-package com.prokkypew.infinitecavystory
+package com.prokkypew.asciipanelview
 
 import org.junit.Assert
 
@@ -8,14 +8,23 @@ import org.junit.Assert
 
 
 fun checkRectangleCleared(panel: AsciiPanelView, character: Char, x: Int, y: Int, width: Int, height: Int, glyphColor: Int?, bgColor: Int?) {
-    for (i in x..x + width - 1) {
-        for (j in y..y + height - 1) {
+    for (i in x until x + width) {
+        for (j in y until y + height) {
             Assert.assertEquals(panel.chars[i][j].glyph, character)
             if (glyphColor != null)
                 Assert.assertEquals(panel.chars[i][j].glyphColor, glyphColor)
             if (bgColor != null)
                 Assert.assertEquals(panel.chars[i][j].bgColor, bgColor)
         }
+    }
+}
+
+fun checkInvalidCursorPos(panel: AsciiPanelView, x: Int, y: Int) {
+    try {
+        panel.setCursorPosition(x, y)
+        Assert.fail()
+    } catch (e: IllegalArgumentException) {
+        Assert.assertNotNull(e)
     }
 }
 
@@ -33,7 +42,7 @@ fun checkInvalidCharPos(panel: AsciiPanelView, glyph: Char, x: Int, y: Int, colo
 }
 
 fun checkCorrectString(panel: AsciiPanelView, string: String, posX: Int, posY: Int, color: Int?, bgColor: Int?) {
-    for (i in posX..posX + string.length - 1) {
+    for (i in posX until posX + string.length) {
         Assert.assertEquals(panel.chars[i][posY].glyph, string[i - posX])
         if (color != null)
             Assert.assertEquals(panel.chars[i][posY].glyphColor, color)

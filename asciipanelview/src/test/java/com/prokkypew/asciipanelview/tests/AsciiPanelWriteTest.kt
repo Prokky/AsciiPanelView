@@ -1,9 +1,10 @@
-package com.prokkypew.infinitecavystory.tests
+package com.prokkypew.asciipanelview.tests
 
 import android.graphics.Color
-import com.prokkypew.infinitecavystory.AsciiPanelView
-import com.prokkypew.infinitecavystory.checkCorrectString
-import com.prokkypew.infinitecavystory.checkInvalidCharPos
+import com.prokkypew.asciipanelview.AsciiPanelView
+import com.prokkypew.asciipanelview.checkCorrectString
+import com.prokkypew.asciipanelview.checkInvalidCharPos
+import com.prokkypew.asciipanelview.checkInvalidCursorPos
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -15,10 +16,10 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(manifest = "app/src/main/AndroidManifest.xml",
+@Config(manifest = "asciipanelview/src/main/AndroidManifest.xml",
         sdk = intArrayOf(26))
 class AsciiPanelWriteTest {
-    lateinit var panel: AsciiPanelView
+    private lateinit var panel: AsciiPanelView
 
     @Before
     @Throws(Exception::class)
@@ -36,19 +37,10 @@ class AsciiPanelWriteTest {
         panel.setCursorPosition(15, 20)
         assertEquals(panel.cursorX, 15)
         assertEquals(panel.cursorY, 20)
-        checkInvalidCursorPos(-1, 5)
-        checkInvalidCursorPos(5, -1)
-        checkInvalidCursorPos(Integer.MAX_VALUE, 5)
-        checkInvalidCursorPos(5, Integer.MAX_VALUE)
-    }
-
-    fun checkInvalidCursorPos(x: Int, y: Int) {
-        try {
-            panel.setCursorPosition(x, y)
-            Assert.fail()
-        } catch (e: IllegalArgumentException) {
-            assertNotNull(e)
-        }
+        checkInvalidCursorPos(panel, -1, 5)
+        checkInvalidCursorPos(panel, 5, -1)
+        checkInvalidCursorPos(panel, Integer.MAX_VALUE, 5)
+        checkInvalidCursorPos(panel, 5, Integer.MAX_VALUE)
     }
 
     @Test

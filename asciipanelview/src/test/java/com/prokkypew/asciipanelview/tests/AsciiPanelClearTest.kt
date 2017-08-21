@@ -1,8 +1,8 @@
-package com.prokkypew.infinitecavystory.tests
+package com.prokkypew.asciipanelview.tests
 
 import android.graphics.Color
-import com.prokkypew.infinitecavystory.AsciiPanelView
-import com.prokkypew.infinitecavystory.checkRectangleCleared
+import com.prokkypew.asciipanelview.AsciiPanelView
+import com.prokkypew.asciipanelview.checkRectangleCleared
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
@@ -14,10 +14,10 @@ import org.robolectric.annotation.Config
 
 
 @RunWith(RobolectricTestRunner::class)
-@Config(manifest = "app/src/main/AndroidManifest.xml",
+@Config(manifest = "asciipanelview/src/main/AndroidManifest.xml",
         sdk = intArrayOf(26))
 class AsciiPanelClearTest {
-    lateinit var panel: AsciiPanelView
+    private lateinit var panel: AsciiPanelView
 
     @Before
     @Throws(Exception::class)
