@@ -1,26 +1,864 @@
 <HTML>
 <HEAD>
     <meta charset="UTF-8">
-    <title>asciipanelview</title>
+    <title>AsciiPanelView - asciipanelview</title>
     <link rel="stylesheet" href="style.css">
 </HEAD>
 <BODY>
-<a href=".">asciipanelview</a><br/>
 <br/>
-<h3>Packages</h3>
+<h1>AsciiPanelView</h1>
+<code><span class="keyword">class </span><span class="identifier">AsciiPanelView</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<a
+        href="https://developer.android.com/reference/android/view/View.html"><span
+        class="identifier">View</span></a></code>
+<p>An implementation of terminal view for old-school games.
+    Initially ported from JPanel AsciiPanel https://github.com/trystan/AsciiPanel to Android
+    View</p>
+<p><strong>Author</strong><br/>
+    Alexander Roman</p>
+<h3>Types</h3>
 <table>
     <tbody>
     <tr>
         <td>
-            <p><a href="com.prokkypew.asciipanelview/index.html">com.prokkypew.asciipanelview</a>
-            </p>
+            <p><a href="-colored-char/index.html">ColoredChar</a></p>
         </td>
         <td>
+            <code><span class="keyword">class </span><span
+                    class="identifier">ColoredChar</span></code>
+            <p>Object for chars to print on the panel</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="-on-char-clicked-listener/index.html">OnCharClickedListener</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span class="identifier">OnCharClickedListener</span></code>
+            <p>Interface to be called on panel character click</p>
         </td>
     </tr>
     </tbody>
 </table>
-<h3>Index</h3>
-<a href="alltypes/index.html">All Types</a>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-init-.html">&lt;init&gt;</a></p>
+        </td>
+        <td>
+            <code><span class="identifier">AsciiPanelView</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$<init>(android.content.Context)/context">context</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://developer.android.com/reference/android/content/Context.html"><span
+                    class="identifier">Context</span></a><span class="symbol">)</span></code>
+            <p>Default View constructors by context</p>
+            <code><span class="identifier">AsciiPanelView</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$<init>(android.content.Context, android.util.AttributeSet)/context">context</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://developer.android.com/reference/android/content/Context.html"><span
+                    class="identifier">Context</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$<init>(android.content.Context, android.util.AttributeSet)/attrs">attrs</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://developer.android.com/reference/android/util/AttributeSet.html"><span
+                    class="identifier">AttributeSet</span></a><span class="symbol">)</span></code>
+            <p>Default View constructors by context and attributes</p>
+            <code><span class="identifier">AsciiPanelView</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/context">context</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://developer.android.com/reference/android/content/Context.html"><span
+                    class="identifier">Context</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/attrs">attrs</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://developer.android.com/reference/android/util/AttributeSet.html"><span
+                    class="identifier">AttributeSet</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$<init>(android.content.Context, android.util.AttributeSet, kotlin.Int)/defStyleAttr">defStyleAttr</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span></code>
+            <p>Default View constructors by context, attributes and default style</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="bg-color.html">bgColor</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">bgColor</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>color of char background to be drawn if not specified</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="char-color.html">charColor</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">charColor</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>color of chars to be drawn if not specified</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="chars.html">chars</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">lateinit</span> <span class="keyword">var </span><span
+                    class="identifier">chars</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span
+                    class="identifier">Array</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span
+                    class="identifier">Array</span></a><span class="symbol">&lt;</span><a
+                    href="-colored-char/index.html"><span
+                    class="identifier">ColoredChar</span></a><span class="symbol">&gt;</span><span
+                    class="symbol">&gt;</span></code>
+            <p>matrix of <a href="-colored-char/index.html">ColoredChar</a> to be drawn on the panel
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="cursor-x.html">cursorX</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">cursorX</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>position X of cursor to draw next char at</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="cursor-y.html">cursorY</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">cursorY</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>position Y of cursor to draw next char at</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="font-family.html">fontFamily</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">fontFamily</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a></code>
+            <p>font file name to use for drawing chars</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="on-char-clicked-listener.html">onCharClickedListener</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span
+                    class="identifier">onCharClickedListener</span><span class="symbol">: </span><a
+                    href="-on-char-clicked-listener/index.html"><span class="identifier">OnCharClickedListener</span></a><span
+                    class="symbol">?</span></code>
+            <p>interface of <a href="-on-char-clicked-listener/index.html">OnCharClickedListener</a>
+                to be called on panel char click</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="panel-height.html">panelHeight</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">panelHeight</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>height of panel in chars</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="panel-width.html">panelWidth</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">var </span><span class="identifier">panelWidth</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>width of panel in chars</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="clear.html">clear</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">clear</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Clear the entire screen to whatever the default background color is.</p>
+            <code><span class="keyword">fun </span><span class="identifier">clear</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$clear(kotlin.Char)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Clear the entire screen with the specified character and whatever the default
+                foreground and background colors are.</p>
+            <code><span class="keyword">fun </span><span class="identifier">clear</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$clear(kotlin.Char, kotlin.Int, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clear(kotlin.Char, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clear(kotlin.Char, kotlin.Int, kotlin.Int)/bgColor">bgColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Clear the entire screen with the specified character and whatever the specified
+                foreground and background colors are.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="clear-rect.html">clearRect</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">clearRect</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/width">width</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/height">height</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Clear the section of the screen with the specified character and whatever the default
+                foreground and background colors are.
+                The cursor position will not be modified.</p>
+            <code><span class="keyword">fun </span><span class="identifier">clearRect</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/width">width</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/height">height</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$clearRect(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/bgColor">bgColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Clear the section of the screen with the specified character and whatever the
+                specified foreground and background colors are.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="on-draw.html">onDraw</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">onDraw</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$onDraw(android.graphics.Canvas)/canvas">canvas</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://developer.android.com/reference/android/graphics/Canvas.html"><span
+                    class="identifier">Canvas</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span
+                    class="identifier">Unit</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="on-size-changed.html">onSizeChanged</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">onSizeChanged</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/xNew">xNew</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/yNew">yNew</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/xOld">xOld</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$onSizeChanged(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/yOld">yOld</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span
+                    class="identifier">Unit</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="on-touch-event.html">onTouchEvent</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">onTouchEvent</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$onTouchEvent(android.view.MotionEvent)/event">event</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://developer.android.com/reference/android/view/MotionEvent.html"><span
+                    class="identifier">MotionEvent</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="set-cursor-pos-x.html">setCursorPosX</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">setCursorPosX</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$setCursorPosX(kotlin.Int)/cursorX">cursorX</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Sets the distance from the left new text will be written to.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="set-cursor-pos-y.html">setCursorPosY</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">setCursorPosY</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$setCursorPosY(kotlin.Int)/cursorY">cursorY</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Sets the distance from the top new text will be written to.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="set-cursor-position.html">setCursorPosition</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">setCursorPosition</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$setCursorPosition(kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$setCursorPosition(kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Sets the x and y position of where new text will be written to. The origin (0,0) is
+                the upper left corner.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="write-center.html">writeCenter</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">writeCenter</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the center of the panel at the specified y position.
+                This updates the cursor's position.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeCenter</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the center of the panel at the specified y position with the
+                specified foreground color.
+                This updates the cursor's position but not the default foreground color.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeCenter</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">?</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.prokkypew.asciipanelview.AsciiPanelView$writeCenter(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/bgColor">bgColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">?</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the center of the panel at the specified y position with the
+                specified foreground and background colors.
+                This updates the cursor's position but not the default foreground or background
+                colors.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="write-char.html">writeChar</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">writeChar</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a character to the cursor's position.
+                This updates the cursor's position.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeChar</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a character to the cursor's position with the specified foreground color.
+                This updates the cursor's position but not the default foreground color.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeChar</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a character to the specified position with the specified foreground color.
+                This updates the cursor's position but not the default foreground color.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeChar</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">?</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.prokkypew.asciipanelview.AsciiPanelView$writeChar(kotlin.Char, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/bgColor">bgColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">?</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a character to the specified position with the specified foreground and
+                background colors.
+                This updates the cursor's position but not the default foreground or background
+                colors.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="write-char-with-color.html">writeCharWithColor</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">writeCharWithColor</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCharWithColor(kotlin.Char, kotlin.Int, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCharWithColor(kotlin.Char, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCharWithColor(kotlin.Char, kotlin.Int, kotlin.Int)/bgColor">bgColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a character to the cursor's position with the specified foreground and
+                background colors.
+                This updates the cursor's position but not the default foreground or background
+                colors.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="write-char-with-pos.html">writeCharWithPos</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">writeCharWithPos</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCharWithPos(kotlin.Char, kotlin.Int, kotlin.Int)/character">character</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html"><span
+                    class="identifier">Char</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCharWithPos(kotlin.Char, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeCharWithPos(kotlin.Char, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a character to the specified position.
+                This updates the cursor's position.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="write-string.html">writeString</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">writeString</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the cursor's position.
+                This updates the cursor's position.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeString</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the cursor's position with the specified foreground color.
+                This updates the cursor's position but not the default foreground color.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeString</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the specified position with the specified foreground color.
+                This updates the cursor's position but not the default foreground color.</p>
+            <code><span class="keyword">fun </span><span class="identifier">writeString</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">?</span><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="com.prokkypew.asciipanelview.AsciiPanelView$writeString(kotlin.String, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/bgColor">bgColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">?</span><span
+                    class="symbol">)</span><span class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the specified position with the specified foreground and background
+                colors.
+                This updates the cursor's position but not the default foreground or background
+                colors.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="write-string-with-color.html">writeStringWithColor</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">writeStringWithColor</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeStringWithColor(kotlin.String, kotlin.Int, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeStringWithColor(kotlin.String, kotlin.Int, kotlin.Int)/charColor">charColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeStringWithColor(kotlin.String, kotlin.Int, kotlin.Int)/bgColor">bgColor</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the cursor's position with the specified foreground and background
+                colors.
+                This updates the cursor's position but not the default foreground or background
+                colors.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="write-string-with-pos.html">writeStringWithPos</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span
+                    class="identifier">writeStringWithPos</span><span class="symbol">(</span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeStringWithPos(kotlin.String, kotlin.Int, kotlin.Int)/string">string</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeStringWithPos(kotlin.String, kotlin.Int, kotlin.Int)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">, </span><span
+                    class="identifier"
+                    id="com.prokkypew.asciipanelview.AsciiPanelView$writeStringWithPos(kotlin.String, kotlin.Int, kotlin.Int)/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a><span class="symbol">)</span><span
+                    class="symbol">: </span><span class="identifier">AsciiPanelView</span></code>
+            <p>Write a string to the specified position.
+                This updates the cursor's position.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <p><a href="-d-e-f-a-u-l-t_-b-g_-c-o-l-o-r.html">DEFAULT_BG_COLOR</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">DEFAULT_BG_COLOR</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>Default char background color = <a
+                    href="https://developer.android.com/reference/android/graphics/Color.html#WHITE">Color.WHITE</a>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="-d-e-f-a-u-l-t_-c-h-a-r_-c-o-l-o-r.html">DEFAULT_CHAR_COLOR</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">DEFAULT_CHAR_COLOR</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>Default char color = <a
+                    href="https://developer.android.com/reference/android/graphics/Color.html#BLACK">Color.BLACK</a>
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="-d-e-f-a-u-l-t_-f-o-n-t.html">DEFAULT_FONT</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">DEFAULT_FONT</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a></code>
+            <p>Default font</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="-d-e-f-a-u-l-t_-p-a-n-e-l_-h-e-i-g-h-t.html">DEFAULT_PANEL_HEIGHT</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">DEFAULT_PANEL_HEIGHT</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>Default panel height in chars = 27</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><a href="-d-e-f-a-u-l-t_-p-a-n-e-l_-w-i-d-t-h.html">DEFAULT_PANEL_WIDTH</a></p>
+        </td>
+        <td>
+            <code><span class="keyword">const</span> <span class="keyword">val </span><span
+                    class="identifier">DEFAULT_PANEL_WIDTH</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
+                    class="identifier">Int</span></a></code>
+            <p>Default panel width in chars = 64</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </BODY>
 </HTML>
