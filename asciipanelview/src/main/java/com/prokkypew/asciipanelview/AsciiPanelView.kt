@@ -136,6 +136,10 @@ class AsciiPanelView : View {
         widthCompensation = (tileWidth - bounds.width()) / 2
     }
 
+
+    /**
+     * @exclude
+     */
     override fun onDraw(canvas: Canvas) {
         for (w in 0 until panelWidth) {
             val posX = tileWidth * w

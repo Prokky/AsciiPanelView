@@ -30,7 +30,12 @@ ext {
 
 dokka {
     outputFormat = 'html'
-    outputDirectory = "$buildDir/javadoc"
+    outputDirectory = "$projectDir/../docs"
+}
+
+task newDokka() {
+    delete "$projectDir/../docs"
+    finalizedBy dokka
 }
 
 android {
