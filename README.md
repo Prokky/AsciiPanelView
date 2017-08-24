@@ -7,7 +7,7 @@
 
 ![Screenshot](https://raw.githubusercontent.com/Prokky/AsciiPanelView/master/screenshots/cavy.png)
 
-##Usage
+## Usage
 To include this library to your project add dependency in **build.gradle** file:
 ```
 dependencies {
