@@ -1,9 +1,11 @@
 # AsciiPanelView
 [![Build Status](https://travis-ci.org/Prokky/AsciiPanelView.svg?branch=master)](https://travis-ci.org/Prokky/AsciiPanelView)
-[ ![Download](https://api.bintray.com/packages/prokky/maven/asciipanelview/images/download.svg) ](https://bintray.com/prokky/maven/asciipanelview/_latestVersion)
+[![Download](https://api.bintray.com/packages/prokky/maven/asciipanelview/images/download.svg) ](https://bintray.com/prokky/maven/asciipanelview/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AsciiPanelView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6097)
 
-Port of AsciiPanel library to Android View on Kotlin
+**Port of AsciiPanel library to Android View on Kotlin**
 
+![Screenshot](https://raw.githubusercontent.com/Prokky/AsciiPanelView/master/screenshots/cavy.png)
 
 ##Usage
 To include this library to your project add dependency in **build.gradle** file:
@@ -52,6 +54,10 @@ class MainActivity : AppCompatActivity(), AsciiPanelView.OnCharClickedListener {
     }
 }
 ```
+More complicated examples of library usage you can find in another project of mine:[**Infinite Cavy Story**](https://github.com/Prokky/InfiniteCavyStory-Android)
+## Thanks
+Big thanks to **Trystan Spangler**, the author of original [**AsciiPanel**](https://github.com/trystan/AsciiPanel)
+
 ## License
 
 Licensed under the Apache License, Version 2.0 (the "License");
